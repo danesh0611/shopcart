@@ -18,23 +18,18 @@ function App() {
 
 const searchchange =(event) =>{
   setsearch(event.target.value)
-  const filtry=brands.filter((brand)=> 
-    brand.brandName.toLowerCase().includes(event.target.value?.toLowerCase())
-  )
+  const filtry = event.target.value?.length > 0? brands.filter((brand) =>
+        brand.brandName.toLowerCase().includes(event.target.value?.toLowerCase())
+      )
+    : allBrands;
   setBrands(filtry)
   
 
 }
 return(
   <>
-<input placeholder='enter a brand' onChange={searchchange}/>
-<ul>
-{brands.map((brand) => <li key={brand.id}>{brand.brandName}</li>)}
-</ul>
+<p>add brand to cart</p>
 
-
-
-    
   </>
 )
 
